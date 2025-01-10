@@ -26,6 +26,8 @@ export type PageContentFields_TopicProduct_Fragment = { __typename: 'TopicProduc
 
 export type PageContentFieldsFragment = PageContentFields_ComponentProductTable_Fragment | PageContentFields_TopicBusinessInfo_Fragment | PageContentFields_TopicProduct_Fragment;
 
+export type PageExtraSectionItemFields_Blog_Fragment = { __typename: 'Blog' };
+
 export type PageExtraSectionItemFields_ComponentCta_Fragment = { __typename: 'ComponentCta' };
 
 export type PageExtraSectionItemFields_ComponentDuplex_Fragment = { __typename: 'ComponentDuplex' };
@@ -38,7 +40,7 @@ export type PageExtraSectionItemFields_ComponentQuote_Fragment = { __typename: '
 
 export type PageExtraSectionItemFields_ComponentTextBlock_Fragment = { __typename: 'ComponentTextBlock' };
 
-export type PageExtraSectionItemFieldsFragment = PageExtraSectionItemFields_ComponentCta_Fragment | PageExtraSectionItemFields_ComponentDuplex_Fragment | PageExtraSectionItemFields_ComponentHeroBanner_Fragment | PageExtraSectionItemFields_ComponentInfoBlock_Fragment | PageExtraSectionItemFields_ComponentQuote_Fragment | PageExtraSectionItemFields_ComponentTextBlock_Fragment;
+export type PageExtraSectionItemFieldsFragment = PageExtraSectionItemFields_Blog_Fragment | PageExtraSectionItemFields_ComponentCta_Fragment | PageExtraSectionItemFields_ComponentDuplex_Fragment | PageExtraSectionItemFields_ComponentHeroBanner_Fragment | PageExtraSectionItemFields_ComponentInfoBlock_Fragment | PageExtraSectionItemFields_ComponentQuote_Fragment | PageExtraSectionItemFields_ComponentTextBlock_Fragment;
 
 export type CtfPageFieldsFragment = { __typename: 'Page', pageName?: string | null, slug?: string | null, internalName?: string | null, sys: { __typename?: 'Sys', id: string }, seo?: { __typename?: 'Seo', title?: string | null, description?: string | null, noIndex?: boolean | null, noFollow?: boolean | null, image?: (
       { __typename?: 'Asset' }
@@ -71,6 +73,9 @@ export type CtfPageFieldsFragment = { __typename: 'Page', pageName?: string | nu
     { __typename: 'TopicProduct', sys: { __typename?: 'Sys', id: string } }
     & PageContentFields_TopicProduct_Fragment
   ) | null, extraSectionCollection?: { __typename?: 'PageExtraSectionCollection', items: Array<(
+      { __typename: 'Blog', sys: { __typename?: 'Sys', id: string } }
+      & PageExtraSectionItemFields_Blog_Fragment
+    ) | (
       { __typename: 'ComponentCta', sys: { __typename?: 'Sys', id: string } }
       & PageExtraSectionItemFields_ComponentCta_Fragment
     ) | (

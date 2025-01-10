@@ -1,0 +1,23 @@
+fragment BlogFields on Blog {
+  __typename
+  sys {
+    id
+  }
+  title
+  slug
+  thumbnail {
+    ...AssetFields
+  }
+  featuredImage {
+    ...AssetFields
+  }
+  content {
+    json
+  }
+}
+
+query CtfBlog($id: String!, $locale: String, $preview: Boolean) {
+  blog(id: $id, locale: $locale, preview: $preview) {
+    ...BlogFields
+  }
+}
