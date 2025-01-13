@@ -56,7 +56,6 @@ const robots = [
 
 export default function Blogs({ blogs }) {
     const classes = useStyles();
-    console.log(blogs);
     return (
         <>
             <Head>

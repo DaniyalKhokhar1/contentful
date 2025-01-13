@@ -59,6 +59,9 @@ const useStyles = makeStyles((theme: Theme) => ({
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         zIndex: 100,
+        [theme.breakpoints.down('md')]: {
+            fontSize: '1.8rem',
+        },
     },
     contentWrap: {},
     innerContainer: {
