@@ -30,20 +30,23 @@ const useStyles = makeStyles((theme: Theme) => ({
         flexWrap: 'wrap',
         maxWidth: `${CONTAINER_WIDTH / 10}rem`,
         paddingBottom: theme.spacing(5),
-        paddingTop: theme.spacing(8),
+        paddingTop: theme.spacing(5),
         [theme.breakpoints.up('sm')]: {
             paddingBottom: theme.spacing(10),
-            paddingTop: theme.spacing(20),
+            paddingTop: theme.spacing(10),
+        },
+        [theme.breakpoints.down('md')]: {
+            justifyContent: 'space-between',
         },
     },
     menuWrapper: {
-        alignItems: 'flex-start',
+        alignItems: 'center',
         display: 'flex',
         flexWrap: 'wrap',
-        marginLeft: theme.spacing(-8),
-    },
-    menuColumn: {
-        paddingLeft: theme.spacing(8),
+        [theme.breakpoints.down('md')]: {
+            marginBottom: theme.spacing(2),
+            gap: '20px',
+        },
     },
     menu: {
         listStyle: 'none',
@@ -54,7 +57,8 @@ const useStyles = makeStyles((theme: Theme) => ({
             marginBottom: 0,
         },
         [theme.breakpoints.down('md')]: {
-            marginBottom: theme.spacing(2),
+            marginBottom: theme.spacing(0),
+            width: '100%',
         },
     },
     menuItem: {
@@ -64,7 +68,7 @@ const useStyles = makeStyles((theme: Theme) => ({
         color: '#1B273A',
         margin: theme.spacing(0, 0, 4),
         [theme.breakpoints.up('sm')]: {
-            marginBottom: theme.spacing(8),
+            marginBottom: theme.spacing(0),
         },
         [theme.breakpoints.down('md')]: {
             marginBottom: theme.spacing(0),
@@ -95,6 +99,9 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
     footerEndSection: {
         marginLeft: 'auto',
+        [theme.breakpoints.down('md')]: {
+            marginLeft: 0,
+        },
     },
     footerCorporateContainer: {
         backgroundColor: '#212121',
@@ -274,7 +281,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                             {footerContent.menuItemsCollection.items.map(
                                 menuItem =>
                                     menuItem && (
-                                        <div key={menuItem.sys.id} className={classes.menuColumn}>
+                                        <div key={menuItem.sys.id}>
                                             <ul className={classes.menu}>
                                                 <li>
                                                     <p
@@ -316,7 +323,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
 
                         <section className={classes.copyrightAndLegal}>
                             <p className={classes.copyright}>
-                                {t('legal.copyright', { year: new Date().getFullYear() })}
+                                {t('© Copyright {{ year }}', { year: new Date().getFullYear() })}
                             </p>
                             {!!footerContent?.legalLinks?.featuredPagesCollection?.items
                                 ?.length && (
@@ -335,7 +342,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     <div className={classes.socialDisclaimer}>
                         <div className={classes.socialWrapper}>
                             <Typography className={classes.socialTitle}>
-                                {t('socials.findUsOn')}
+                                {t('Find us on')}
                             </Typography>
                             <div className={classes.social}>
                                 {footerContent?.twitterLink && (
